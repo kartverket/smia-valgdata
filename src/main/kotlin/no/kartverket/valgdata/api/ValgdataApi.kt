@@ -28,7 +28,7 @@ interface ValgdataApi {
         )
     )
     @GetMapping("/tellekretser", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getTellektetser(): ResponseEntity<InputStreamResource>
+    fun getTellekretser(): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige tellekretser", description = "Henter alle framtidige tellekretser")
     @ApiResponses(
@@ -41,7 +41,7 @@ interface ValgdataApi {
         )
     )
     @GetMapping("/tellekretser/framtidige", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeTellektetser(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeTellekretser(): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent fylker", description = "Henter alle fylker")
     @ApiResponses(
