@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController("ValgdataController")
 class ValgdataController(private val valgdataService: ValgdataService): ValgdataApi {
-    override fun getTellektetser(): ResponseEntity<InputStreamResource> {
+    override fun getTellekretser(): ResponseEntity<InputStreamResource> {
         return valgdataService.getTellekretser(framtidig = false)
     }
 
-    override fun getFramtidigeTellektetser(): ResponseEntity<InputStreamResource> {
+    override fun getFramtidigeTellekretser(): ResponseEntity<InputStreamResource> {
         return valgdataService.getTellekretser(framtidig = true)
     }
 
