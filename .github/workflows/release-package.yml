@@ -1,0 +1,53 @@
+name: Release app
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  image_name: valgdata-api
+  registry: ghcr.io
+  registry_path: kartverket
+
+jobs:
+  build:
+    permissions:
+      contents: write
+      packages: write
+      security-events: write
+      actions: read
+      issues: read
+      checks: write
+      pull-requests: write
+    uses: kartverket/valgdata-api/.github/workflows/build-app.yml@main
+    with:
+      deploy_ghcr: true
+    secrets: inherit
+
+  pharos:
+    name: Run Pharos security scan
+    needs: build
+    permissions:
+      actions: read
+      packages: read
+      contents: read
+      security-events: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run Pharos"
+        uses: kartverket/pharos@v0.2.5
+        with:
+          allow_severity_level: critical
+          image_url: ${{ needs.build.outputs.image_url }}
+
+  deploy-argo:
+    permissions:
+      id-token: write
+    needs: [pharos, build]
+    uses: kartverket/smia-apps/.github/workflows/release-app-octo-sts.yml@main
+    with:
+      application: valgdata-api
+      version: ${{ needs.build.outputs.version }}
+      deploy_dev: true
+      deploy_prod: false
+      identity: valgdata

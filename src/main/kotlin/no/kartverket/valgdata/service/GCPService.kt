@@ -12,11 +12,12 @@ import org.springframework.http.ResponseEntity
 @Service
 class GCPService {
 
-    final val jsonKey = System.getenv("GOOGLE_APPLICATION_CREDENTIALS_JSON")
-    final val credentials = GoogleCredentials.fromStream(ByteArrayInputStream(jsonKey.toByteArray()))
-    val storage: Storage = StorageOptions.newBuilder().setCredentials(credentials).build().service
-
     fun getGeoJsonFromDataprodukterBucket(pathInBucket: String): ResponseEntity<InputStreamResource> {
+
+        val jsonKey = System.getenv("GOOGLE_APPLICATION_CREDENTIALS_JSON")
+        val credentials = GoogleCredentials.fromStream(ByteArrayInputStream(jsonKey.toByteArray()))
+        val storage: Storage = StorageOptions.newBuilder().setCredentials(credentials).build().service
+
         try {
             val bucketName = System.getenv("VALGDATA_BUCKET_NAME") ?: throw IllegalStateException("Env variable VALGDATA_BUCKET_NAME is not set")
 
