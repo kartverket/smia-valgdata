@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service
 import java.io.ByteArrayInputStream
 import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
+import java.nio.channels.Channels
 
 @Service
 class GCPService {
@@ -23,7 +24,7 @@ class GCPService {
 
             val blob = storage.get(bucketName, pathInBucket)
 
-            val contentStream = ByteArrayInputStream(blob.getContent())
+            val inputStream = Channels.newInputStream(blob.reader())
 
             val headers = HttpHeaders()
             headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"${pathInBucket}\"")
@@ -31,7 +32,7 @@ class GCPService {
             return ResponseEntity
                 .ok()
                 .headers(headers)
-                .body(InputStreamResource(contentStream))
+                .body(InputStreamResource(inputStream))
         } catch (e: Exception){
             return ResponseEntity.notFound().build()
         }
