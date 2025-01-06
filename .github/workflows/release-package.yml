@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  image_name: valgdata-api
+  image_name: smia-valgdata
   registry: ghcr.io
   registry_path: kartverket
 
@@ -19,7 +19,7 @@ jobs:
       issues: read
       checks: write
       pull-requests: write
-    uses: kartverket/valgdata-api/.github/workflows/build-app.yml@main
+    uses: kartverket/smia-valgdata/.github/workflows/build-app.yml@main
     with:
       deploy_ghcr: true
     secrets: inherit
@@ -46,7 +46,7 @@ jobs:
     needs: [pharos, build]
     uses: kartverket/smia-apps/.github/workflows/release-app-octo-sts.yml@main
     with:
-      application: valgdata-api
+      application: smia-valgdata
       version: ${{ needs.build.outputs.version }}
       deploy_dev: true
       deploy_prod: false
