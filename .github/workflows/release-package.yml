@@ -48,6 +48,7 @@ jobs:
     with:
       application: smia-valgdata
       version: ${{ needs.build.outputs.version }}
+      namespace: "smia-tjenester-main"
       deploy_dev: true
       deploy_prod: false
       identity: restapi
