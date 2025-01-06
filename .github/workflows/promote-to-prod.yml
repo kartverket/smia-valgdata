@@ -2,7 +2,7 @@ name: Promote dev to prod
 on: workflow_dispatch
 
 env:
-  image_name: valgdata-api
+  image_name: smia-valgdata
   registry: ghcr.io
   registry_path: kartverket
 
@@ -12,5 +12,6 @@ jobs:
       id-token: write
     uses: kartverket/smia-apps/.github/workflows/promote-app-octo-sts.yml@main
     with:
-      application: valgdata-api
-      identity: valgdata
+      application: smia-valgdata
+      namespace: "smia-tjenester-main"
+      identity: restapi

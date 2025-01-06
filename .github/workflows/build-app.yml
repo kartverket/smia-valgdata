@@ -17,7 +17,7 @@ on:
         value: ${{ jobs.build.outputs.image_url }}
 
 env:
-  image_name: valgdata-api
+  image_name: smia-valgdata
   registry: ghcr.io
   registry_path: kartverket
 
