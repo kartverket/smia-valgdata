@@ -50,4 +50,4 @@ jobs:
       version: ${{ needs.build.outputs.version }}
       deploy_dev: true
       deploy_prod: false
-      identity: valgdata
+      identity: restapi
