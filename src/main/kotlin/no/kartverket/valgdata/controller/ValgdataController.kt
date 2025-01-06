@@ -12,24 +12,48 @@ class ValgdataController(private val valgdataService: ValgdataService): Valgdata
         return valgdataService.getTellekretser(framtidig = false)
     }
 
+    override fun getTellekretserRepresentasjonspunkter(): ResponseEntity<InputStreamResource> {
+        return valgdataService.getTellekretserRepresentasjonspunkter(framtidig = false)
+    }
+
     override fun getFramtidigeTellekretser(): ResponseEntity<InputStreamResource> {
         return valgdataService.getTellekretser(framtidig = true)
+    }
+
+    override fun getFramtidigeTellekretserRepresentasjonspunkter(): ResponseEntity<InputStreamResource> {
+        return valgdataService.getTellekretserRepresentasjonspunkter(framtidig = true)
     }
 
     override fun getFylker(): ResponseEntity<InputStreamResource> {
         return valgdataService.getFylker(framtidig = false)
     }
 
+    override fun getFylkerRepresentasjonspunkter(): ResponseEntity<InputStreamResource> {
+        return valgdataService.getFylkerRepresentasjonspunkter(framtidig = false)
+    }
+
     override fun getFramtidigeFylker(): ResponseEntity<InputStreamResource> {
         return valgdataService.getFylker(framtidig = true)
+    }
+
+    override fun getFramtidigeFylkerRepresentasjonspunkter(): ResponseEntity<InputStreamResource> {
+        return valgdataService.getFylkerRepresentasjonspunkter(framtidig = true)
     }
 
     override fun getKommuner(): ResponseEntity<InputStreamResource> {
         return valgdataService.getKommuner(framtidig = false)
     }
 
+    override fun getKommunerRepresentasjonspunkter(): ResponseEntity<InputStreamResource> {
+        return valgdataService.getKommunerRepresentasjonspunkter(framtidig = false)
+    }
+
     override fun getFramtidigeKommuner(): ResponseEntity<InputStreamResource> {
         return valgdataService.getKommuner(framtidig = true)
+    }
+
+    override fun getFramtidigeKommunerRepresentasjonspunkter(): ResponseEntity<InputStreamResource> {
+        return valgdataService.getKommunerRepresentasjonspunkter(framtidig = true)
     }
 
 
