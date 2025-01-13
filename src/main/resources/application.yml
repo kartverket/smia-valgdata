@@ -11,6 +11,15 @@ management:
         enabled: true
       show-details: always
       access: read_only
+
+springdoc:
+  swagger-ui:
+    path: /
+
 spring:
   application:
     name: 'valgdata'
+
+server:
+  servlet:
+    context-path: '/valgdata'
