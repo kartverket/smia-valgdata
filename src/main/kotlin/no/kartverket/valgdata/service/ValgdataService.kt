@@ -11,7 +11,7 @@ enum class Dataprodukt(val fileNameDagens: String, val fileNameFramtidig: String
     ),
     TELLEKRETSER_KYSTKONTUR(
         fileNameDagens = "dagens/stemmekretser/gold_tellekretser_kystkontur.geojson",
-        fileNameFramtidig = "framtidig/stemmekretser/gold_tellekretser.geojson"
+        fileNameFramtidig = "framtidig/stemmekretser/gold_tellekretser_kystkontur.geojson"
     ),
     FYLKER(
         fileNameDagens = "dagens/fylker/gold_fylker.geojson",
@@ -19,7 +19,7 @@ enum class Dataprodukt(val fileNameDagens: String, val fileNameFramtidig: String
     ),
     FYLKER_KYSTKONTUR(
         fileNameDagens = "dagens/fylker/gold_fylker_kystkontur.geojson",
-        fileNameFramtidig = "framtidig/fylker/gold_fylker.geojson"
+        fileNameFramtidig = "framtidig/fylker/gold_fylker_kystkontur.geojson"
     ),
     KOMMUNER(
         fileNameDagens = "dagens/kommuner/gold_kommuner.geojson",
@@ -27,7 +27,7 @@ enum class Dataprodukt(val fileNameDagens: String, val fileNameFramtidig: String
     ),
     KOMMUNER_KYSTKONTUR(
         fileNameDagens = "dagens/kommuner/gold_kommuner_kystkontur.geojson",
-        fileNameFramtidig = "framtidig/kommuner/gold_kommuner.geojson"
+        fileNameFramtidig = "framtidig/kommuner/gold_kommuner_kystkontur.geojson"
     ),
     TELLEKRETSER_REPRESENTASJONSPUNKTER(
         fileNameDagens = "dagens/stemmekretser/gold_tellekretser_representasjonspunkter.geojson",
