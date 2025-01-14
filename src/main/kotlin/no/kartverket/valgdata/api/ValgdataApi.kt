@@ -9,10 +9,10 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
-@RequestMapping("/")
+@RequestMapping("/v1")
 @Tag(
     name = "Valgdata API",
-    description = "Endepunkter for å hente data om inndelinger som er relevante for valget"
+    description = "Endepunkter for å hente data om inndelinger som er relevante for valget. Her kan en hente data om tellekretser, kommuner, og fylker. Disse finnes både med og uten kystkontur. Representasjonspunkter serveres som egne filer. APIet skiller mellom dagens inndelinger og evt. fremtidige endringer på nevnte inndelinger. "
 )
 
 interface ValgdataApi {
