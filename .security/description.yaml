@@ -1,1 +1,4 @@
-organisasjon: Eiendom
+organization: Eiendom
+product: sikkerhet-metrikker
+repo_types: [PublicApi]
+platforms: [SKIP]
