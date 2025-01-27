@@ -8,6 +8,7 @@ import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 
 @RequestMapping("/")
 @Tag(
@@ -28,7 +29,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/tellekretser", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getTellekretser(): ResponseEntity<InputStreamResource>
+    fun getTellekretser(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent tellekretser med kystkontur", description = "Henter alle tellekretser klippet etter kystkontur")
     @ApiResponses(
@@ -41,7 +44,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/tellekretser/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getTellekretserKystkontur(): ResponseEntity<InputStreamResource>
+    fun getTellekretserKystkontur(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent dagens tellekretser representasjonspunkter", description = "Henter alle dagens tellekretser sine representasjonspunkter")
     @ApiResponses(
@@ -54,7 +59,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/tellekretser/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getTellekretserRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getTellekretserRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent dagens tellekretser representasjonspunkter", description = "Henter alle dagens tellekretser klippet etter kystkontur sine representasjonspunkter")
     @ApiResponses(
@@ -67,7 +74,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/tellekretser/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getTellekretserKystkonturRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getTellekretserKystkonturRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige tellekretser", description = "Henter alle framtidige tellekretser")
     @ApiResponses(
@@ -80,7 +89,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/tellekretser", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeTellekretser(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeTellekretser(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige tellekretser kystkontur", description = "Henter alle framtidige tellekretser klippet etter kystkontur")
     @ApiResponses(
@@ -93,7 +104,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/tellekretser/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeTellekretserKystkontur(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeTellekretserKystkontur(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige tellekretser representasjonspunkter", description = "Henter alle framtidige tellekretser sine representasjonspunkter")
     @ApiResponses(
@@ -106,7 +119,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/tellekretser/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeTellekretserRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeTellekretserRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige tellekretser representasjonspunkter", description = "Henter alle framtidige tellekretser sine representasjonspunkter")
     @ApiResponses(
@@ -119,7 +134,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/tellekretser/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeTellekretserKystkonturRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeTellekretserKystkonturRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent fylker", description = "Henter alle fylker")
     @ApiResponses(
@@ -132,7 +149,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/fylker", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFylker(): ResponseEntity<InputStreamResource>
+    fun getFylker(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent fylker kystkontur", description = "Henter alle fylker klippet etter kystkontur")
     @ApiResponses(
@@ -145,7 +164,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/fylker/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFylkerKystkontur(): ResponseEntity<InputStreamResource>
+    fun getFylkerKystkontur(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent fylker representasjonspunkter", description = "Henter alle fylker sine representasjonspunkter")
     @ApiResponses(
@@ -158,7 +179,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/fylker/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFylkerRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getFylkerRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent fylker representasjonspunkter kystkontur", description = "Henter alle fylker klippet etter kystkontur sine representasjonspunkter")
     @ApiResponses(
@@ -171,7 +194,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/fylker/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFylkerKystkonturRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getFylkerKystkonturRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige fylker", description = "Henter alle framtidige fylker")
     @ApiResponses(
@@ -184,7 +209,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/fylker", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeFylker(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeFylker(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige fylker kystkontur", description = "Henter alle framtidige fylker klippet etter kystkontur")
     @ApiResponses(
@@ -197,7 +224,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/fylker/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeFylkerKystkontur(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeFylkerKystkontur(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige fylker representasjonspunkter", description = "Henter alle framtidige fylker sine representasjonspunkter")
     @ApiResponses(
@@ -210,7 +239,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/fylker/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeFylkerRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeFylkerRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige fylker kystkontur representasjonspunkter", description = "Henter alle framtidige fylker klippet etter kystkontur sine representasjonspunkter")
     @ApiResponses(
@@ -223,7 +254,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/fylker/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeFylkerKystkonturRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeFylkerKystkonturRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent kommuner", description = "Henter alle kommuner")
     @ApiResponses(
@@ -236,7 +269,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/kommuner", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getKommuner(): ResponseEntity<InputStreamResource>
+    fun getKommuner(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent kommuner kystkontur", description = "Henter alle kommuner klippet etter kystkontur")
     @ApiResponses(
@@ -249,7 +284,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/kommuner/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getKommunerKystkontur(): ResponseEntity<InputStreamResource>
+    fun getKommunerKystkontur(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent kommuner representasjonspunkter", description = "Henter alle kommuner sine representasjonspunkter")
     @ApiResponses(
@@ -262,7 +299,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/kommuner/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getKommunerRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getKommunerRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent kommuner kystkontur representasjonspunkter", description = "Henter alle kommuner klippet etter kystkontur sine representasjonspunkter")
     @ApiResponses(
@@ -275,7 +314,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("dagens/kommuner/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getKommunerKystkonturRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getKommunerKystkonturRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige kommuner", description = "Henter alle framtidige kommuner")
     @ApiResponses(
@@ -288,7 +329,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/kommuner", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeKommuner(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeKommuner(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige kommuner kystkontur", description = "Henter alle framtidige kommuner klippet etter kystkontur")
     @ApiResponses(
@@ -301,7 +344,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/kommuner/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeKommunerKystkontur(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeKommunerKystkontur(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige kommuner", description = "Henter alle framtidige kommuner")
     @ApiResponses(
@@ -314,7 +359,9 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/kommuner/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeKommunerRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeKommunerRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 
     @Operation(summary = "Hent framtidige kommuner kystkontur representasjonspunkter", description = "Henter alle framtidige kommuner klippet etter kystkontur sine representasjonspunkter")
     @ApiResponses(
@@ -327,5 +374,7 @@ interface ValgdataApi {
         )
     )
     @GetMapping("framtidige/kommuner/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeKommunerKystkonturRepresentasjonspunkter(): ResponseEntity<InputStreamResource>
+    fun getFramtidigeKommunerKystkonturRepresentasjonspunkter(
+        @RequestParam(required = true, name = "identifikasjon") identifikasjon: String
+    ): ResponseEntity<InputStreamResource>
 }
