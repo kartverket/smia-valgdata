@@ -1,0 +1,29 @@
+# nonk8s
+apiVersion: "backstage.io/v1alpha1"
+kind: "Component"
+metadata:
+  name: "smia-valgdata"
+  tags:
+  - "public"
+spec:
+  type: "service"
+  lifecycle: "production"
+  owner: "smia"
+  providesApis:
+  - "smia-valgdata-api"
+---
+apiVersion: "backstage.io/v1alpha1"
+kind: "API"
+metadata:
+  name: "smia-valgdata-api"
+  tags:
+  - "public"
+spec:
+  type: "openapi"
+  lifecycle: "production"
+  owner: "smia"
+  definition: |
+    openapi: "3.0.0"
+    info:
+        title: smia-valgdata API
+    paths:
