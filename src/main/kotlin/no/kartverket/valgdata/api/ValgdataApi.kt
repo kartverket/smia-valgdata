@@ -1,4 +1,5 @@
 import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
@@ -30,6 +31,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/tellekretser", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getTellekretser(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -45,6 +47,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/tellekretser/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getTellekretserKystkontur(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -60,6 +63,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/tellekretser/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getTellekretserRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -75,6 +79,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/tellekretser/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getTellekretserKystkonturRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -90,6 +95,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/tellekretser", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeTellekretser(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -105,6 +111,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/tellekretser/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeTellekretserKystkontur(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -120,6 +127,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/tellekretser/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeTellekretserRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -135,6 +143,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/tellekretser/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeTellekretserKystkonturRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -150,6 +159,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/fylker", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFylker(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -165,6 +175,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/fylker/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFylkerKystkontur(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -180,6 +191,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/fylker/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFylkerRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -195,6 +207,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/fylker/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFylkerKystkonturRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -210,6 +223,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/fylker", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeFylker(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -225,6 +239,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/fylker/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeFylkerKystkontur(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -240,6 +255,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/fylker/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeFylkerRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -255,6 +271,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/fylker/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeFylkerKystkonturRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -270,6 +287,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/kommuner", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getKommuner(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -285,6 +303,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/kommuner/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getKommunerKystkontur(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -300,6 +319,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/kommuner/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getKommunerRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -315,6 +335,7 @@ interface ValgdataApi {
     )
     @GetMapping("dagens/kommuner/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getKommunerKystkonturRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -330,6 +351,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/kommuner", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeKommuner(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -345,6 +367,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/kommuner/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeKommunerKystkontur(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -360,6 +383,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/kommuner/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeKommunerRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
@@ -375,6 +399,7 @@ interface ValgdataApi {
     )
     @GetMapping("framtidige/kommuner/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getFramtidigeKommunerKystkonturRepresentasjonspunkter(
+        @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 }
