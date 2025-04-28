@@ -1,4 +1,4 @@
-name: Promote dev to prod
+name: Promote dev to test and prod
 on: workflow_dispatch
 
 env:
@@ -14,4 +14,5 @@ jobs:
     with:
       application: smia-valgdata
       namespace: "smia-tjenester-main"
+      extra_namespace: smiatest-tjenester-main
       identity: restapi
