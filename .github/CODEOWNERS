@@ -4,4 +4,4 @@
 # Dokumentasjon:              https://kartverket.atlassian.net/wiki/spaces/NIBAS/overview
 
 * @kartverket/smia
-/.security/ @smia-security-champion
+/.security/ @kristmh
