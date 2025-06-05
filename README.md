@@ -24,7 +24,7 @@ Trykk "Apply" og deretter "Ok"
 
 ## Tech stack
 
-Applikasjonen er skrevet i Kotlin, og bruker Spring-boot som rammeverk. 
+Applikasjonen er skrevet i Kotlin, og bruker Spring-boot som rammeverk. Gradle er byggverktøyet. 
 Google cloud biblioteket brukes from å kommunisere med gcp.
 
 Konfigurasjon for kjøring på SKIP finnes i [smia-apps](https://github.com/kartverket/smia-apps)
