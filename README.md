@@ -4,6 +4,9 @@ Spring-applikasjon som serverer valgdata. Applikasjonen tilbyr en rekke endepunk
 
 APIet er satt opp slik at requests må inneholde parameteret "organisasjon" for å bli behandlet. Dette er for at brukere at APIet skal identifisere seg selv.
 
+<img width="617" height="476" alt="image" src="https://github.com/user-attachments/assets/c9227331-c037-4b92-a473-5e375d6a8239" />
+
+
 ## Oppsett
 
 For å kjøre applikasjonen lokalt trenger du å opprette en run-configuration i Intellij som setter miljøvariableler for applikasjonen. 
