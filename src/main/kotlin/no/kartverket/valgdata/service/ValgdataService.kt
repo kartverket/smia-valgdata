@@ -5,11 +5,11 @@ import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
 enum class Dataprodukt(val fileNameDagens: String, val fileNameFramtidig: String) {
-    TELLEKRETSER(
+    STEMMEKRETSER(
         fileNameDagens = "dagens/stemmekretser/gold_tellekretser.geojson",
         fileNameFramtidig = "framtidig/stemmekretser/gold_tellekretser.geojson"
     ),
-    TELLEKRETSER_KYSTKONTUR(
+    STEMMEKRETSER_KYSTKONTUR(
         fileNameDagens = "dagens/stemmekretser/gold_tellekretser_kystkontur.geojson",
         fileNameFramtidig = "framtidig/stemmekretser/gold_tellekretser_kystkontur.geojson"
     ),
@@ -29,11 +29,11 @@ enum class Dataprodukt(val fileNameDagens: String, val fileNameFramtidig: String
         fileNameDagens = "dagens/kommuner/gold_kommuner_kystkontur.geojson",
         fileNameFramtidig = "framtidig/kommuner/gold_kommuner_kystkontur.geojson"
     ),
-    TELLEKRETSER_REPRESENTASJONSPUNKTER(
+    STEMMEKRETSER_REPRESENTASJONSPUNKTER(
         fileNameDagens = "dagens/stemmekretser/gold_tellekretser_representasjonspunkter.geojson",
         fileNameFramtidig = "framtidig/stemmekretser/gold_tellekretser_representasjonspunkter.geojson"
     ),
-    TELLEKRETSER_KYSTKONTUR_REPRESENTASJONSPUNKTER(
+    STEMMEKRETSER_KYSTKONTUR_REPRESENTASJONSPUNKTER(
         fileNameDagens = "dagens/stemmekretser/gold_tellekretser_kystkontur_representasjonspunkter.geojson",
         fileNameFramtidig = "framtidig/stemmekretser/gold_tellekretser_kystkontur_representasjonspunkter.geojson"
     ),
@@ -60,28 +60,28 @@ class ValgdataService(
     val gcpService: GCPService
 ) {
 
-    fun getTellekretser(framtidig: Boolean): ResponseEntity<InputStreamResource> {
+    fun getStemmekretser(framtidig: Boolean): ResponseEntity<InputStreamResource> {
         return if (framtidig) {
-            gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.TELLEKRETSER.fileNameFramtidig)
-        } else gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.TELLEKRETSER.fileNameDagens)
+            gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.STEMMEKRETSER.fileNameFramtidig)
+        } else gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.STEMMEKRETSER.fileNameDagens)
     }
 
-    fun getTellekretserRepresentasjonspunkter(framtidig: Boolean): ResponseEntity<InputStreamResource> {
+    fun getStemmekretserRepresentasjonspunkter(framtidig: Boolean): ResponseEntity<InputStreamResource> {
         return if(framtidig){
-            gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.TELLEKRETSER_REPRESENTASJONSPUNKTER.fileNameFramtidig)
-        } else gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.TELLEKRETSER_REPRESENTASJONSPUNKTER.fileNameDagens)
+            gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.STEMMEKRETSER_REPRESENTASJONSPUNKTER.fileNameFramtidig)
+        } else gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.STEMMEKRETSER_REPRESENTASJONSPUNKTER.fileNameDagens)
     }
 
-    fun getTellekretserKystkontur(framtidig: Boolean): ResponseEntity<InputStreamResource> {
+    fun getStemmekretserKystkontur(framtidig: Boolean): ResponseEntity<InputStreamResource> {
         return if (framtidig) {
-            gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.TELLEKRETSER_KYSTKONTUR.fileNameFramtidig)
-        } else gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.TELLEKRETSER_KYSTKONTUR.fileNameDagens)
+            gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.STEMMEKRETSER_KYSTKONTUR.fileNameFramtidig)
+        } else gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.STEMMEKRETSER_KYSTKONTUR.fileNameDagens)
     }
 
-    fun getTellekretserKystkonturRepresentasjonspunkter(framtidig: Boolean): ResponseEntity<InputStreamResource> {
+    fun getStemmekretserKystkonturRepresentasjonspunkter(framtidig: Boolean): ResponseEntity<InputStreamResource> {
         return if(framtidig){
-            gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.TELLEKRETSER_KYSTKONTUR_REPRESENTASJONSPUNKTER.fileNameFramtidig)
-        } else gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.TELLEKRETSER_KYSTKONTUR_REPRESENTASJONSPUNKTER.fileNameDagens)
+            gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.STEMMEKRETSER_KYSTKONTUR_REPRESENTASJONSPUNKTER.fileNameFramtidig)
+        } else gcpService.getGeoJsonFromDataprodukterBucket(Dataprodukt.STEMMEKRETSER_KYSTKONTUR_REPRESENTASJONSPUNKTER.fileNameDagens)
     }
 
     fun getFylker(framtidig: Boolean): ResponseEntity<InputStreamResource> {
