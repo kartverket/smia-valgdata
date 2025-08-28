@@ -9,36 +9,36 @@ import org.springframework.web.bind.annotation.RestController
 @RestController("ValgdataController")
 class ValgdataController(private val valgdataService: ValgdataService): ValgdataApi {
 
-    override fun getTellekretser(organisasjon: String): ResponseEntity<InputStreamResource> {
-        return valgdataService.getTellekretser(framtidig = false)
+    override fun getStemmekretser(organisasjon: String): ResponseEntity<InputStreamResource> {
+        return valgdataService.getStemmekretser(framtidig = false)
     }
 
-    override fun getTellekretserKystkontur(organisasjon: String): ResponseEntity<InputStreamResource> {
-        return valgdataService.getTellekretserKystkontur(framtidig = false)
+    override fun getStemmekretserKystkontur(organisasjon: String): ResponseEntity<InputStreamResource> {
+        return valgdataService.getStemmekretserKystkontur(framtidig = false)
     }
 
-    override fun getTellekretserRepresentasjonspunkter(organisasjon: String): ResponseEntity<InputStreamResource> {
-        return valgdataService.getTellekretserRepresentasjonspunkter(framtidig = false)
+    override fun getStemmekretserRepresentasjonspunkter(organisasjon: String): ResponseEntity<InputStreamResource> {
+        return valgdataService.getStemmekretserRepresentasjonspunkter(framtidig = false)
     }
 
-    override fun getTellekretserKystkonturRepresentasjonspunkter(organisasjon: String): ResponseEntity<InputStreamResource> {
-        return valgdataService.getTellekretserKystkonturRepresentasjonspunkter(framtidig = false)
+    override fun getStemmekretserKystkonturRepresentasjonspunkter(organisasjon: String): ResponseEntity<InputStreamResource> {
+        return valgdataService.getStemmekretserKystkonturRepresentasjonspunkter(framtidig = false)
     }
 
-    override fun getFramtidigeTellekretser(organisasjon: String): ResponseEntity<InputStreamResource> {
-        return valgdataService.getTellekretser(framtidig = true)
+    override fun getFramtidigeStemmekretser(organisasjon: String): ResponseEntity<InputStreamResource> {
+        return valgdataService.getStemmekretser(framtidig = true)
     }
 
-    override fun getFramtidigeTellekretserKystkontur(organisasjon: String): ResponseEntity<InputStreamResource> {
-        return valgdataService.getTellekretserKystkontur(framtidig = true)
+    override fun getFramtidigeStemmekretserKystkontur(organisasjon: String): ResponseEntity<InputStreamResource> {
+        return valgdataService.getStemmekretserKystkontur(framtidig = true)
     }
 
-    override fun getFramtidigeTellekretserRepresentasjonspunkter(organisasjon: String): ResponseEntity<InputStreamResource> {
-        return valgdataService.getTellekretserRepresentasjonspunkter(framtidig = true)
+    override fun getFramtidigeStemmekretserRepresentasjonspunkter(organisasjon: String): ResponseEntity<InputStreamResource> {
+        return valgdataService.getStemmekretserRepresentasjonspunkter(framtidig = true)
     }
 
-    override fun getFramtidigeTellekretserKystkonturRepresentasjonspunkter(organisasjon: String): ResponseEntity<InputStreamResource> {
-        return valgdataService.getTellekretserKystkonturRepresentasjonspunkter(framtidig = true)
+    override fun getFramtidigeStemmekretserKystkonturRepresentasjonspunkter(organisasjon: String): ResponseEntity<InputStreamResource> {
+        return valgdataService.getStemmekretserKystkonturRepresentasjonspunkter(framtidig = true)
     }
 
     override fun getFylker(organisasjon: String): ResponseEntity<InputStreamResource> {

@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam
 @RequestMapping("/")
 @Tag(
     name = "Valgdata API",
-    description = "Endepunkter for å hente data om inndelinger som er relevante for valget. Her kan en hente data om tellekretser, kommuner, og fylker. Disse finnes både med og uten kystkontur. Representasjonspunkter serveres som egne filer. APIet skiller mellom dagens inndelinger og evt. fremtidige endringer på nevnte inndelinger. "
+    description = "Endepunkter for å hente data om inndelinger som er relevante for valget. Her kan en hente data om stemmekretser, kommuner, og fylker. Disse finnes både med og uten kystkontur. Representasjonspunkter serveres som egne filer. APIet skiller mellom dagens inndelinger og evt. fremtidige endringer på nevnte inndelinger. "
 )
 
 interface ValgdataApi {
 
-    @Operation(summary = "Hent tellekretser", description = "Henter alle tellekretser")
+    @Operation(summary = "Hent stemmekretser", description = "Henter alle stemmekretser")
     @ApiResponses(
         ApiResponse(
             responseCode = "200",
@@ -29,13 +29,13 @@ interface ValgdataApi {
             )]
         )
     )
-    @GetMapping("dagens/tellekretser", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getTellekretser(
+    @GetMapping("dagens/stemmekretser", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getStemmekretser(
         @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
-    @Operation(summary = "Hent tellekretser med kystkontur", description = "Henter alle tellekretser klippet etter kystkontur")
+    @Operation(summary = "Hent stemmekretser med kystkontur", description = "Henter alle stemmekretser klippet etter kystkontur")
     @ApiResponses(
         ApiResponse(
             responseCode = "200",
@@ -45,13 +45,13 @@ interface ValgdataApi {
             )]
         )
     )
-    @GetMapping("dagens/tellekretser/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getTellekretserKystkontur(
+    @GetMapping("dagens/stemmekretser/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getStemmekretserKystkontur(
         @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
-    @Operation(summary = "Hent dagens tellekretser representasjonspunkter", description = "Henter alle dagens tellekretser sine representasjonspunkter")
+    @Operation(summary = "Hent dagens stemmekretser representasjonspunkter", description = "Henter alle dagens stemmekretser sine representasjonspunkter")
     @ApiResponses(
         ApiResponse(
             responseCode = "200",
@@ -61,13 +61,13 @@ interface ValgdataApi {
             )]
         )
     )
-    @GetMapping("dagens/tellekretser/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getTellekretserRepresentasjonspunkter(
+    @GetMapping("dagens/stemmekretser/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getStemmekretserRepresentasjonspunkter(
         @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
-    @Operation(summary = "Hent dagens tellekretser representasjonspunkter", description = "Henter alle dagens tellekretser klippet etter kystkontur sine representasjonspunkter")
+    @Operation(summary = "Hent dagens stemmekretser representasjonspunkter", description = "Henter alle dagens stemmekretser klippet etter kystkontur sine representasjonspunkter")
     @ApiResponses(
         ApiResponse(
             responseCode = "200",
@@ -77,13 +77,13 @@ interface ValgdataApi {
             )]
         )
     )
-    @GetMapping("dagens/tellekretser/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getTellekretserKystkonturRepresentasjonspunkter(
+    @GetMapping("dagens/stemmekretser/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getStemmekretserKystkonturRepresentasjonspunkter(
         @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
-    @Operation(summary = "Hent framtidige tellekretser", description = "Henter alle framtidige tellekretser")
+    @Operation(summary = "Hent framtidige stemmekretser", description = "Henter alle framtidige stemmekretser")
     @ApiResponses(
         ApiResponse(
             responseCode = "200",
@@ -93,13 +93,13 @@ interface ValgdataApi {
             )]
         )
     )
-    @GetMapping("framtidige/tellekretser", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeTellekretser(
+    @GetMapping("framtidige/stemmekretser", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getFramtidigeStemmekretser(
         @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
-    @Operation(summary = "Hent framtidige tellekretser kystkontur", description = "Henter alle framtidige tellekretser klippet etter kystkontur")
+    @Operation(summary = "Hent framtidige stemmekretser kystkontur", description = "Henter alle framtidige stemmekretser klippet etter kystkontur")
     @ApiResponses(
         ApiResponse(
             responseCode = "200",
@@ -109,13 +109,13 @@ interface ValgdataApi {
             )]
         )
     )
-    @GetMapping("framtidige/tellekretser/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeTellekretserKystkontur(
+    @GetMapping("framtidige/stemmekretser/kystkontur", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getFramtidigeStemmekretserKystkontur(
         @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
-    @Operation(summary = "Hent framtidige tellekretser representasjonspunkter", description = "Henter alle framtidige tellekretser sine representasjonspunkter")
+    @Operation(summary = "Hent framtidige stemmekretser representasjonspunkter", description = "Henter alle framtidige stemmekretser sine representasjonspunkter")
     @ApiResponses(
         ApiResponse(
             responseCode = "200",
@@ -125,13 +125,13 @@ interface ValgdataApi {
             )]
         )
     )
-    @GetMapping("framtidige/tellekretser/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeTellekretserRepresentasjonspunkter(
+    @GetMapping("framtidige/stemmekretser/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getFramtidigeStemmekretserRepresentasjonspunkter(
         @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
 
-    @Operation(summary = "Hent framtidige tellekretser representasjonspunkter", description = "Henter alle framtidige tellekretser sine representasjonspunkter")
+    @Operation(summary = "Hent framtidige stemmekretser representasjonspunkter", description = "Henter alle framtidige stemmekretser sine representasjonspunkter")
     @ApiResponses(
         ApiResponse(
             responseCode = "200",
@@ -141,8 +141,8 @@ interface ValgdataApi {
             )]
         )
     )
-    @GetMapping("framtidige/tellekretser/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getFramtidigeTellekretserKystkonturRepresentasjonspunkter(
+    @GetMapping("framtidige/stemmekretser/kystkontur/representasjonspunkter", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getFramtidigeStemmekretserKystkonturRepresentasjonspunkter(
         @Parameter(description = "Oppgi kun navn på organisasjonen eller bedriften du representerer. Ikke oppgi personlig informasjon, som ditt eget navn eller annen identifiserende informasjon. Er du en privatperson, oppgi \"Ikke oppgitt\". Feltet brukes kun av Kartverket til statistiske formål", required = true)
         @RequestParam(required = true, name = "organisasjon") organisasjon: String
     ): ResponseEntity<InputStreamResource>
