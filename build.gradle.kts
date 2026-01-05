@@ -1,7 +1,7 @@
 plugins {
     kotlin("jvm") version "2.2.21"
     kotlin("plugin.spring") version "2.2.21"
-    id("org.springframework.boot") version "4.0.0"
+    id("org.springframework.boot") version "4.0.1"
     id("io.spring.dependency-management") version "1.1.7"
 }
 
@@ -19,7 +19,7 @@ repositories {
 }
 
 // Dependency versions
-val SPRINGDOC_OPENAPI_VERSION = "3.0.0"
+val SPRINGDOC_OPENAPI_VERSION = "3.0.1"
 val MICROMETER_PROMETHEUS_VERSION = "1.16.1"
 val LOGSTASH_VERSION = "9.0"
 val GOOGLE_CLOUD_STORAGE_VERSION = "2.61.0"
