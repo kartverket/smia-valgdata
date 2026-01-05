@@ -31,3 +31,11 @@ jobs:
         with:
           comment-summary-in-pr: always
           allow-licenses: MIT, Apache-2.0, EPL-2.0, BSD-3-Clause, BSD-2-Clause, CPL-1.0
+          # JUnit 6 and Spring 7 har problemer med scannig de har EPL-2.0 and Apache-2.0.
+          allow-dependencies-licenses: >
+            pkg:maven/org.junit.jupiter/junit-jupiter-engine,
+            pkg:maven/org.junit.jupiter/junit-jupiter-params,
+            pkg:maven/org.junit.platform/junit-platform-commons,
+            pkg:maven/org.junit.platform/junit-platform-engine,
+            pkg:maven/org.junit.platform/junit-platform-launcher,
+            pkg:maven/org.springframework/spring-web
