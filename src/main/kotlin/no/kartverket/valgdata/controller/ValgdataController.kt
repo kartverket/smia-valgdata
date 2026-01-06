@@ -1,6 +1,6 @@
 package no.kartverket.valgdata.controller
 
-import ValgdataApi
+import no.kartverket.valgdata.api.ValgdataApi
 import no.kartverket.valgdata.service.ValgdataService
 import org.springframework.core.io.InputStreamResource
 import org.springframework.http.ResponseEntity
