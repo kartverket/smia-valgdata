@@ -22,7 +22,7 @@ repositories {
 val SPRINGDOC_OPENAPI_VERSION = "3.0.1"
 val MICROMETER_PROMETHEUS_VERSION = "1.16.3"
 val LOGSTASH_VERSION = "9.0"
-val GOOGLE_CLOUD_STORAGE_VERSION = "2.62.1"
+val GOOGLE_CLOUD_STORAGE_VERSION = "2.64.0"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
