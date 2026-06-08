@@ -22,9 +22,10 @@ repositories {
 val SPRINGDOC_OPENAPI_VERSION = "3.0.3"
 val MICROMETER_PROMETHEUS_VERSION = "1.16.5"
 val LOGSTASH_VERSION = "9.0"
-val GOOGLE_CLOUD_STORAGE_VERSION = "2.64.1"
+val gcpBomVersion = "26.83.0"
 
 dependencies {
+    implementation(platform("com.google.cloud:libraries-bom:$gcpBomVersion"))
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
     implementation("tools.jackson.module:jackson-module-kotlin")
@@ -36,7 +37,7 @@ dependencies {
     implementation("io.micrometer:micrometer-registry-prometheus:$MICROMETER_PROMETHEUS_VERSION")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:$SPRINGDOC_OPENAPI_VERSION")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$SPRINGDOC_OPENAPI_VERSION")
-    implementation("com.google.cloud:google-cloud-storage:$GOOGLE_CLOUD_STORAGE_VERSION")
+    implementation("com.google.cloud:google-cloud-storage")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
