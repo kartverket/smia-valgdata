@@ -1,4 +1,5 @@
 name: Build app
+
 on:
   pull_request:
     branches: [ main ]
@@ -15,6 +16,9 @@ on:
       image_url:
         description: "The full URL to the docker-image created"
         value: ${{ jobs.build.outputs.image_url }}
+      digest:
+        description: "The digest of the docker image"
+        value: ${{ jobs.build.outputs.digest }}
 
 env:
   image_name: smia-valgdata
@@ -37,6 +41,7 @@ jobs:
     outputs:
       new_tag: ${{ steps.tag_version.outputs.new_tag }}
       image_url: ${{ steps.setOutput.outputs.image_url }}
+      digest: ${{ steps.build.outputs.digest }}
 
     steps:
       - name: Checkout repository

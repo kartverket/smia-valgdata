@@ -1,4 +1,5 @@
 name: Release app
+
 on:
   push:
     branches: [ main ]
@@ -43,12 +44,13 @@ jobs:
   deploy-argo:
     permissions:
       id-token: write
+      contents: read
     needs: [pharos, build]
-    uses: kartverket/smia-apps/.github/workflows/release-app-octo-sts.yml@main
+    uses: kartverket/smia-workflows/.github/workflows/deploy-app.yml@main
     with:
       application: smia-valgdata
       version: ${{ needs.build.outputs.version }}
-      namespace: "smia-tjenester-main"
-      deploy_dev: true
-      deploy_prod: false
+      digest: ${{ needs.build.outputs.digest }}
+      environment: dev
+      namespace: smia-tjenester-main
       identity: restapi
