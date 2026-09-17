@@ -32,10 +32,16 @@ jobs:
           comment-summary-in-pr: always
           allow-licenses: MIT, Apache-2.0, EPL-2.0, BSD-3-Clause, BSD-2-Clause, CPL-1.0
           # JUnit 6 and Spring 7 har problemer med scannig de har EPL-2.0 and Apache-2.0.
+          # Google har lagt på lisensen på en måte som gjør at dependency-review ikke plukker den opp. Alle disse
+          # har egentlig lisenser vi tillater
           allow-dependencies-licenses: >
             pkg:maven/org.junit.jupiter/junit-jupiter-engine,
             pkg:maven/org.junit.jupiter/junit-jupiter-params,
             pkg:maven/org.junit.platform/junit-platform-commons,
             pkg:maven/org.junit.platform/junit-platform-engine,
             pkg:maven/org.junit.platform/junit-platform-launcher,
-            pkg:maven/org.springframework/spring-web
+            pkg:maven/org.springframework/spring-web,
+            pkg:maven/com.google.auth/google-auth-library-parent,
+            pkg:maven/com.google.cloud/google-cloud-bom,
+            pkg:maven/com.google.errorprone/error_prone_annotations,
+            pkg:maven/com.google.cloud/google-cloud-apptopology-bom
