@@ -2,7 +2,7 @@ name: Release app
 
 on:
   push:
-    branches: [ main ]
+    branches: [ '*' ]
   workflow_dispatch:
 
 env:
@@ -41,17 +41,3 @@ jobs:
           allow_severity_level: critical
           image_url: ${{ needs.build.outputs.image_url }}
           trivy_vex: "true"
-
-  deploy-argo:
-    permissions:
-      id-token: write
-      contents: read
-    needs: [pharos, build]
-    uses: kartverket/smia-workflows/.github/workflows/deploy-app.yml@main
-    with:
-      application: smia-valgdata
-      version: ${{ needs.build.outputs.version }}
-      digest: ${{ needs.build.outputs.digest }}
-      environment: dev
-      namespace: smia-tjenester-main
-      identity: restapi
