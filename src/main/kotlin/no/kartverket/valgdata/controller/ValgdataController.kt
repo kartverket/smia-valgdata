@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RestController
 @RestController("ValgdataController")
 class ValgdataController(private val valgdataService: ValgdataService): ValgdataApi {
 
+    override fun health(): ResponseEntity<Void> {
+        return ResponseEntity.ok().build()
+    }
+
     override fun getStemmekretser(organisasjon: String): ResponseEntity<InputStreamResource> {
         return valgdataService.getStemmekretser(framtidig = false)
     }
