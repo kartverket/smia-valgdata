@@ -21,6 +21,16 @@ import org.springframework.web.bind.annotation.RequestParam
 
 interface ValgdataApi {
 
+    @Operation(summary = "Sjekk tilgjengelighet", description = "Bekrefter at API-et er tilgjengelig")
+    @ApiResponses(
+        ApiResponse(
+            responseCode = "200",
+            description = "API-et er tilgjengelig"
+        )
+    )
+    @GetMapping("health")
+    fun health(): ResponseEntity<Void>
+
     @Operation(summary = "Hent stemmekretser", description = "Henter alle stemmekretser")
     @ApiResponses(
         ApiResponse(
