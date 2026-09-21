@@ -1,0 +1,6 @@
+- targets:
+    - https://api.kartverket.no/valgdata/v1/health
+  labels:
+    team: smia
+    env: prod
+    service: smia-valgdata
