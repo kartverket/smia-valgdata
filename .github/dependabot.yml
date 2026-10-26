@@ -44,3 +44,6 @@ updates:
       day: "monday"
       time: "03:42"
       timezone: "Europe/Oslo"
+    ignore:
+      - dependency-name: "eclipse-temurin"
+        update-types: ["version-update:semver-major"]
