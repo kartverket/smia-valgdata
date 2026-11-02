@@ -22,7 +22,7 @@ repositories {
 val SPRINGDOC_OPENAPI_VERSION = "3.2.0"
 val MICROMETER_PROMETHEUS_VERSION = "1.17.2"
 val LOGSTASH_VERSION = "9.0"
-val gcpBomVersion = "26.90.0"
+val gcpBomVersion = "26.91.0"
 
 dependencies {
     implementation(platform("com.google.cloud:libraries-bom:$gcpBomVersion"))
