@@ -19,7 +19,7 @@ repositories {
 }
 
 // Dependency versions
-val SPRINGDOC_OPENAPI_VERSION = "3.2.0"
+val SPRINGDOC_OPENAPI_VERSION = "3.2.1"
 val MICROMETER_PROMETHEUS_VERSION = "1.18.0"
 val LOGSTASH_VERSION = "9.0"
 val gcpBomVersion = "26.94.0"
